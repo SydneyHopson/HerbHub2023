@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "463936766369",
+    "project_id": "hurbhub23",
+    "storage_bucket": "hurbhub23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463936766369:android:8b227e515ad951bd094be0",
+        "android_client_info": {
+          "package_name": "com.mycompany.hurbhub23"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463936766369-8dp90epo1iif8tn46fm0o4bg60f0d9sp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.hurbhub23",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "463936766369-e9jltvj4murvaoh24lfluabolmgj6tbk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0OcYcv4MQT6t-52jlL3oae3iPAwHgEUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "463936766369-e9jltvj4murvaoh24lfluabolmgj6tbk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "463936766369-rm8b598b8q8015jlrdb61epcn677hbg1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.hurbhub23"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

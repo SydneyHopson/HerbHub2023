@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>463936766369-rm8b598b8q8015jlrdb61epcn677hbg1.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.463936766369-rm8b598b8q8015jlrdb61epcn677hbg1</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>463936766369-8dp90epo1iif8tn46fm0o4bg60f0d9sp.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBmcDwp7JP1AbNQDgI_K3ggumsnp7Aou34</string>
+	<key>GCM_SENDER_ID</key>
+	<string>463936766369</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mycompany.hurbhub23</string>
+	<key>PROJECT_ID</key>
+	<string>hurbhub23</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hurbhub23.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:463936766369:ios:4773b985f7ebb2ac094be0</string>
+</dict>
+</plist>
