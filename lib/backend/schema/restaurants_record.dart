@@ -31,10 +31,16 @@ class RestaurantsRecord extends FirestoreRecord {
   String get image => _image ?? '';
   bool hasImage() => _image != null;
 
+  // "quality" field.
+  String? _quality;
+  String get quality => _quality ?? '';
+  bool hasQuality() => _quality != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _category = snapshotData['category'] as String?;
     _image = snapshotData['image'] as String?;
+    _quality = snapshotData['quality'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -75,12 +81,14 @@ Map<String, dynamic> createRestaurantsRecordData({
   String? name,
   String? category,
   String? image,
+  String? quality,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'name': name,
       'category': category,
       'image': image,
+      'quality': quality,
     }.withoutNulls,
   );
 
@@ -94,12 +102,13 @@ class RestaurantsRecordDocumentEquality implements Equality<RestaurantsRecord> {
   bool equals(RestaurantsRecord? e1, RestaurantsRecord? e2) {
     return e1?.name == e2?.name &&
         e1?.category == e2?.category &&
-        e1?.image == e2?.image;
+        e1?.image == e2?.image &&
+        e1?.quality == e2?.quality;
   }
 
   @override
   int hash(RestaurantsRecord? e) =>
-      const ListEquality().hash([e?.name, e?.category, e?.image]);
+      const ListEquality().hash([e?.name, e?.category, e?.image, e?.quality]);
 
   @override
   bool isValidKey(Object? o) => o is RestaurantsRecord;
