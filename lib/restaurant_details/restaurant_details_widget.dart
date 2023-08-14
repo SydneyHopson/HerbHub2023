@@ -31,6 +31,8 @@ class _RestaurantDetailsWidgetState extends State<RestaurantDetailsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => RestaurantDetailsModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -109,7 +111,7 @@ class _RestaurantDetailsWidgetState extends State<RestaurantDetailsWidget> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(12.0),
                   child: Image.network(
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfDAXzwncxHvid5D6CSPNwAXicg7hWIACvyA&usqp=CAU',
+                    restaurantDetailsRestaurantsRecord.image,
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 300.0,
                     fit: BoxFit.cover,
@@ -192,18 +194,22 @@ class _RestaurantDetailsWidgetState extends State<RestaurantDetailsWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'company',
+                            restaurantDetailsRestaurantsRecord.quality,
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ],
                       ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [],
+                      Text(
+                        'Description',
+                        style: FlutterFlowTheme.of(context).labelLarge,
                       ),
                       Text(
-                        'Restaurant Description',
-                        style: FlutterFlowTheme.of(context).labelLarge,
+                        restaurantDetailsRestaurantsRecord.description,
+                        style: FlutterFlowTheme.of(context).labelLarge.override(
+                              fontFamily: 'Readex Pro',
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w300,
+                            ),
                       ),
                       Divider(
                         height: 32.0,

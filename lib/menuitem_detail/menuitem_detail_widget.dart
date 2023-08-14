@@ -34,6 +34,7 @@ class _MenuitemDetailWidgetState extends State<MenuitemDetailWidget> {
     _model = createModel(context, () => MenuitemDetailModel());
 
     _model.textController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -119,9 +120,9 @@ class _MenuitemDetailWidgetState extends State<MenuitemDetailWidget> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10.0),
                   child: Image.network(
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfDAXzwncxHvid5D6CSPNwAXicg7hWIACvyA&usqp=CAU',
+                    menuitemDetailMenuitemsRecord.image,
                     width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 300.0,
+                    height: 250.0,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -147,12 +148,18 @@ class _MenuitemDetailWidgetState extends State<MenuitemDetailWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 5.0, 5.0, 5.0, 5.0),
                             child: Text(
-                              menuitemDetailMenuitemsRecord.price.toString(),
+                              formatNumber(
+                                menuitemDetailMenuitemsRecord.price,
+                                formatType: FormatType.custom,
+                                format: '\$',
+                                locale: '',
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
                                     fontFamily: 'NotoSerif',
                                     color: FlutterFlowTheme.of(context).primary,
+                                    fontSize: 15.0,
                                     useGoogleFonts: false,
                                   ),
                             ),
@@ -210,7 +217,6 @@ class _MenuitemDetailWidgetState extends State<MenuitemDetailWidget> {
                         autofocus: true,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Special Instructions...',
                           labelStyle: FlutterFlowTheme.of(context)
                               .labelMedium
                               .override(
@@ -218,8 +224,10 @@ class _MenuitemDetailWidgetState extends State<MenuitemDetailWidget> {
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 useGoogleFonts: false,
                               ),
+                          hintText:
+                              'Delivery Address ...\nMobile Number...\nSpecial Instructions...',
                           hintStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
+                              FlutterFlowTheme.of(context).titleMedium.override(
                                     fontFamily: 'NotoSerif',
                                     useGoogleFonts: false,
                                   ),
@@ -228,7 +236,7 @@ class _MenuitemDetailWidgetState extends State<MenuitemDetailWidget> {
                           errorBorder: InputBorder.none,
                           focusedErrorBorder: InputBorder.none,
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).titleSmall,
                         maxLines: 3,
                         validator:
                             _model.textControllerValidator.asValidator(context),

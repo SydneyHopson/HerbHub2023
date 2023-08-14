@@ -25,6 +25,8 @@ class _BrowseWidgetState extends State<BrowseWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BrowseModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

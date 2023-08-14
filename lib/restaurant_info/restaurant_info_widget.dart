@@ -35,6 +35,8 @@ class _RestaurantInfoWidgetState extends State<RestaurantInfoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => RestaurantInfoModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
