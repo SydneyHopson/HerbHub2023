@@ -168,7 +168,7 @@ class _OrdersWidgetState extends State<OrdersWidget> {
                                           borderRadius:
                                               BorderRadius.circular(6.0),
                                           child: Image.network(
-                                            menuItemMenuitemsRecord.image,
+                                            'https://e1.pxfuel.com/desktop-wallpaper/546/978/desktop-wallpaper-dazzling-macro-graphs-reveal-the-unexpected-beauty-of-marijuana-buds.jpg',
                                             width: 80.0,
                                             height: 80.0,
                                             fit: BoxFit.cover,
