@@ -36,6 +36,21 @@ class OrdersRecord extends FirestoreRecord {
   List<CartItemTypeStruct> get orderItems => _orderItems ?? const [];
   bool hasOrderItems() => _orderItems != null;
 
+  // "source" field.
+  LatLng? _source;
+  LatLng? get source => _source;
+  bool hasSource() => _source != null;
+
+  // "destination" field.
+  LatLng? _destination;
+  LatLng? get destination => _destination;
+  bool hasDestination() => _destination != null;
+
+  // "driverPosition" field.
+  List<LatLng>? _driverPosition;
+  List<LatLng> get driverPosition => _driverPosition ?? const [];
+  bool hasDriverPosition() => _driverPosition != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -46,6 +61,9 @@ class OrdersRecord extends FirestoreRecord {
       snapshotData['orderItems'],
       CartItemTypeStruct.fromMap,
     );
+    _source = snapshotData['source'] as LatLng?;
+    _destination = snapshotData['destination'] as LatLng?;
+    _driverPosition = getDataList(snapshotData['driverPosition']);
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -90,12 +108,16 @@ Map<String, dynamic> createOrdersRecordData({
   DateTime? timestamp,
   String? status,
   DocumentReference? restaurantRef,
+  LatLng? source,
+  LatLng? destination,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'timestamp': timestamp,
       'status': status,
       'restaurantRef': restaurantRef,
+      'source': source,
+      'destination': destination,
     }.withoutNulls,
   );
 
@@ -111,12 +133,22 @@ class OrdersRecordDocumentEquality implements Equality<OrdersRecord> {
     return e1?.timestamp == e2?.timestamp &&
         e1?.status == e2?.status &&
         e1?.restaurantRef == e2?.restaurantRef &&
-        listEquality.equals(e1?.orderItems, e2?.orderItems);
+        listEquality.equals(e1?.orderItems, e2?.orderItems) &&
+        e1?.source == e2?.source &&
+        e1?.destination == e2?.destination &&
+        listEquality.equals(e1?.driverPosition, e2?.driverPosition);
   }
 
   @override
-  int hash(OrdersRecord? e) => const ListEquality()
-      .hash([e?.timestamp, e?.status, e?.restaurantRef, e?.orderItems]);
+  int hash(OrdersRecord? e) => const ListEquality().hash([
+        e?.timestamp,
+        e?.status,
+        e?.restaurantRef,
+        e?.orderItems,
+        e?.source,
+        e?.destination,
+        e?.driverPosition
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is OrdersRecord;

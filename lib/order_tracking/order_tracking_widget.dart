@@ -100,11 +100,13 @@ class _OrderTrackingWidgetState extends State<OrderTrackingWidget> {
             body: SafeArea(
               top: true,
               child: Container(
-                width: 200.0,
-                height: 200.0,
-                child: custom_widgets.GMap1(
-                  width: 200.0,
-                  height: 200.0,
+                width: 350.0,
+                height: 300.0,
+                child: custom_widgets.GMapWidget2(
+                  width: 350.0,
+                  height: 300.0,
+                  orderDocRef: orderTrackingOrdersRecord.reference,
+                  orderDoc: orderTrackingOrdersRecord,
                 ),
               ),
             ),
