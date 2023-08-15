@@ -57,6 +57,40 @@ class _GMapWidget2State extends State<GMapWidget2> {
               widget.orderDoc.destination!.latitude!,
               widget.orderDoc.destination!.longitude!,
             ),
+            // Optional parameters
+            routeWidth: 5,
+            sourceMarkerIconInfo: GM.MarkerIconInfo(
+              infoWindowTitle: "This is source name",
+              onTapInfoWindow: (_) {
+                print("Tapped on source info window");
+              },
+              assetPath: "assets/images/house-marker-icon.png",
+            ),
+            destinationMarkerIconInfo: GM.MarkerIconInfo(
+              assetPath: "assets/images/restaurant-marker-icon.png",
+            ),
+            driverMarkerIconInfo: GM.MarkerIconInfo(
+              infoWindowTitle: "Alex",
+              assetPath: "assets/images/driver-marker-icon.png",
+              onTapMarker: (currentLocation) {
+                print("Driver is currently at $currentLocation");
+              },
+              assetMarkerSize: Size.square(125),
+              rotation: 90,
+            ),
+            updatePolylinesOnDriverLocUpdate: true,
+            onPolylineUpdate: (_) {
+              print("Polyline updated");
+            },
+            driverCoordinatesStream: Stream.periodic(
+              Duration(milliseconds: 500),
+              (i) => GM.LatLng(
+                40.47747872288886 + i / 10000,
+                -3.368043154478073 - i / 10000,
+              ),
+            ),
+            totalTimeCallback: (time) => print(time),
+            totalDistanceCallback: (distance) => print(distance),
             // ... other parameters
           ),
           Padding(
@@ -83,8 +117,8 @@ class _GMapWidget2State extends State<GMapWidget2> {
                       final googleMapsCon = await mapsWidgetController
                           .currentState!
                           .getGoogleMapsController();
-                      googleMapsCon
-                          .showMarkerInfoWindow(MarkerIconInfo.sourceMarkerId);
+                      googleMapsCon.showMarkerInfoWindow(
+                          GM.MarkerIconInfo.sourceMarkerId);
                     },
                     child: Text('Show source info'),
                   ),
