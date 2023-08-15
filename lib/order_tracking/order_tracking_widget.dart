@@ -1,7 +1,7 @@
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -71,6 +71,7 @@ class _OrderTrackingWidgetState extends State<OrderTrackingWidget> {
           onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
           child: Scaffold(
             key: scaffoldKey,
+            resizeToAvoidBottomInset: false,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             appBar: AppBar(
               backgroundColor: FlutterFlowTheme.of(context).primaryText,
@@ -99,15 +100,23 @@ class _OrderTrackingWidgetState extends State<OrderTrackingWidget> {
             ),
             body: SafeArea(
               top: true,
-              child: Container(
-                width: 350.0,
-                height: 300.0,
-                child: custom_widgets.GMapWidget2(
-                  width: 350.0,
-                  height: 300.0,
-                  orderDocRef: orderTrackingOrdersRecord.reference,
-                  orderDoc: orderTrackingOrdersRecord,
-                ),
+              child: FlutterFlowGoogleMap(
+                controller: _model.googleMapsController,
+                onCameraIdle: (latLng) => _model.googleMapsCenter = latLng,
+                initialLocation: _model.googleMapsCenter ??=
+                    orderTrackingOrdersRecord.source!,
+                markerColor: GoogleMarkerColor.violet,
+                mapType: MapType.normal,
+                style: GoogleMapStyle.standard,
+                initialZoom: 14.0,
+                allowInteraction: true,
+                allowZoom: true,
+                showZoomControls: true,
+                showLocation: true,
+                showCompass: false,
+                showMapToolbar: false,
+                showTraffic: false,
+                centerMapOnMarkerTap: true,
               ),
             ),
           ),
