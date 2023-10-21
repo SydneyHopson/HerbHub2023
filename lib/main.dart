@@ -55,6 +55,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
     userStream = hurbHub23FirebaseUserStream()
@@ -85,7 +86,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'HurbHub23',
+      title: 'HerbHub',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
@@ -149,8 +150,8 @@ class _NavBarPageState extends State<NavBarPage> {
           _currentPageName = tabs.keys.toList()[i];
         }),
         backgroundColor: FlutterFlowTheme.of(context).primaryText,
-        selectedItemColor: Color(0xFFD4A00E),
-        unselectedItemColor: Color(0xFFD4A00E),
+        selectedItemColor: Color(0xFFED9012),
+        unselectedItemColor: Color(0xFFED9012),
         showSelectedLabels: true,
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,

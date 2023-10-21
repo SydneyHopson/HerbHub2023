@@ -11,3 +11,4 @@ export '/checkout/checkout_widget.dart' show CheckoutWidget;
 export '/profile/profile_widget.dart' show ProfileWidget;
 export '/orders/orders_widget.dart' show OrdersWidget;
 export '/order_tracking/order_tracking_widget.dart' show OrderTrackingWidget;
+export '/payment/payment_widget.dart' show PaymentWidget;

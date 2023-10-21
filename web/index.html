@@ -23,46 +23,67 @@
 
   
 
-  <meta name="robots" content="noindex" />
+  
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <!-- Open Graph & SEO tags -->
-  <meta property="og:title" content="HurbHub" />
-  <meta property="og:description" content="Built with FlutterFlow." />
-  <meta property="og:image" content="https://storage.googleapis.com/flutterflow-prod-hosting/og_splash_gradient.png" /> 
-  <meta name="twitter:title" content="HurbHub" />
-  <meta name="twitter:description" content="Built with FlutterFlow." />
-  <meta name="twitter:image" content="https://storage.googleapis.com/flutterflow-prod-hosting/og_splash_gradient.png" />
+  <meta property="og:title" content="Premium Herbs - Explore Our Exclusive Selection" />
+  <meta property="og:description" content=""Elevate your senses with herbhub, the premier herb delivery app. Indulge in the finest selection of herbs and discover a new level of relaxation and enjoyment. Our convenient delivery service brings nature's botanical wonders straight to your doorstep. Explore a curated collection of top-quality herbs and experience a world of natural delight with herbhub."
+
+" />
+  <meta property="og:image" content="/assets/assets/images/Mustard_Illustrated_Food_App_Delivery_Instagram_Post_(1).png" /> 
+  <meta name="twitter:title" content="Premium Herbs - Explore Our Exclusive Selection" />
+  <meta name="twitter:description" content=""Elevate your senses with herbhub, the premier herb delivery app. Indulge in the finest selection of herbs and discover a new level of relaxation and enjoyment. Our convenient delivery service brings nature's botanical wonders straight to your doorstep. Explore a curated collection of top-quality herbs and experience a world of natural delight with herbhub."
+
+" />
+  <meta name="twitter:image" content="/assets/assets/images/Mustard_Illustrated_Food_App_Delivery_Instagram_Post_(1).png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <title> HurbHub </title>
-  <meta name="description" content="Built with FlutterFlow." />
+  <title> Premium Herbs - Explore Our Exclusive Selection </title>
+  <meta name="description" content=""Elevate your senses with herbhub, the premier herb delivery app. Indulge in the finest selection of herbs and discover a new level of relaxation and enjoyment. Our convenient delivery service brings nature's botanical wonders straight to your doorstep. Explore a curated collection of top-quality herbs and experience a world of natural delight with herbhub."
+
+" />
     
 
   <!-- Status Bar color in Safari browser (iOS) and PWA -->
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f1f4f8">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#1d2428">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9cf58">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#f9cf58">
 
   <link rel="manifest" href="manifest.json">
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    var serviceWorkerVersion = null;
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
 </head>
 <body>
-  <!-- This script installs service_worker.js to provide PWA functionality to
-       application. For more information, see:
-       https://developers.google.com/web/fundamentals/primers/service-workers -->
   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('flutter-first-frame', function () {
-        navigator.serviceWorker.register('flutter_service_worker.js');
-      });
-    }
     
+    window.addEventListener('load', function (ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        entrypointUrl: 'main.dart.js',
+        serviceWorker: {
+          serviceWorkerUrl: 'flutter_service_worker.js?v=',
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: async function(engineInitializer) {
+          // Initialize the Flutter engine
+          let appRunner = await engineInitializer.initializeEngine({
+            useColorEmoji: true,
+          });
+          // Run the app
+          await appRunner.runApp();
+        }
+      });
+    });
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTx1lTRCGJkjSA-HeQJvQBElLq8bZVF_M"></script>
   
   
   
-  <script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>
